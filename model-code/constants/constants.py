@@ -1,0 +1,1 @@
+MODEL_FILE_SAVE_LOCATION = "C:\навчання\Курсові\НМ\code\model-code\model"
