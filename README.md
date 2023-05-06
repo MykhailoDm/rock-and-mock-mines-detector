@@ -1,6 +1,6 @@
 ## Getting Started
 
-1\. Clone Git repository:
+Clone Git repository:
 
 If needed, install `git`.
 
@@ -11,6 +11,8 @@ git clone https://github.com/MykhailoDm/rock-and-mock-mines-detector.git
 ```
 
 ## <a name="gettingstarted1"></a>Running Code for trained model
+
+sonar.csv dataset has been retrieved from http://archive.ics.uci.edu/ml/datasets/Connectionist+Bench+(Sonar,+Mines+vs.+Rocks).
 
 For running scripts, which display accuracy in `print` statement, you can simply launch script like so:
 
@@ -46,6 +48,16 @@ pip install -r requirements.txt
 For running flask project, you have to go to `web-app` directory. From there run:
 
 ```
-python -m flask run
+python app.py
 ```
-*Note:* Location of a model is specified in a MODEL_LOCATION at the start of the file 
+*Note:* Location of a model is specified in a MODEL_LOCATION constant at the start of the file.
+
+After application has started, you can visit the home page via going to http://127.0.0.1:5000/.
+There you can provide sonar data, a comma-separated 60 numbers just like in sonar.csv. Example:
+
+
+0.0164,0.0173,0.0347,0.0070,0.0187,0.0671,0.1056,0.0697,0.0962,0.0251,0.0801,0.1056,0.1266,0.0890,0.0198,0.1133,0.2826,0.3234,0.3238,0.4333,0.6068,0.7652,0.9203,0.9719,0.9207,0.7545,0.8289,0.8907,0.7309,0.6896,0.5829,0.4935,0.3101,0.0306,0.0244,0.1108,0.1594,0.1371,0.0696,0.0452,0.0620,0.1421,0.1597,0.1384,0.0372,0.0688,0.0867,0.0513,0.0092,0.0198,0.0118,0.0090,0.0223,0.0179,0.0084,0.0068,0.0032,0.0035,0.0056,0.0040
+
+
+Then, after clicking submit, the page will be updated and you will see the response saying that type is either ROCK or MINE.
+If you do not see response, try to correct data you send to server.
