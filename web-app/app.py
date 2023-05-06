@@ -2,7 +2,7 @@ from sklearn.preprocessing import LabelEncoder
 from pandas import read_csv
 from scikeras.wrappers import KerasClassifier
 import keras
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 
 
 MODEL_LOCATION = "C:\навчання\Курсові\НМ\code\model-code\model"
@@ -23,12 +23,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hello"
+    return render_template('index.html')
 
 @app.route("/api/v1/analyzier", methods = ['POST'])
 def determine_rock_or_mock_mine():
     content = request.json
-    content["signals"]
     result = classifier.predict([
         content["signals"]
     ])

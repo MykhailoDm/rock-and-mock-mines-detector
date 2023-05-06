@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rock and Mock mine detector</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Rock and Mock mine detector</h1>
+    <p>Provide your Sonar chirp signal, which is array of 60 numbers in the range 0.0 to 1.0. Each number represents the energy within a particular frequency band, integrated over a certain period of time. The integration aperture for higher frequencies occur later in time, since these frequencies are transmitted later during the chirp.</p>
+
+    <form onsubmit="sendData(event)">
+        <input type="text" id="data"></input>
+        <input type='submit' id='submit'>
+    </form>
+
+    <p id="type"></p>
+
+    <script>
+        function sendData(e) {
+            e.preventDefault();
+            data = document.getElementById("data").value.split(",").map(i => (i + 0));
+            fetch("/api/v1/analyzier", {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "POST",
+                body: JSON.stringify({"signals": data})
+            }).then(r => r.json())
+            .then(t => document.getElementById("type").innerText = "Type: " + t["type"])
+            .catch(e => console.log(e));
+        }
+    </script>
+
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>
