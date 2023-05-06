@@ -50,7 +50,7 @@ For running flask project, you have to go to `web-app` directory. From there run
 ```
 python app.py
 ```
-*Note:* Location of a model is specified in a MODEL_LOCATION constant at the start of the file.
+*Note:* Location of a model is specified in a MODEL_LOCATION constant at the start of the file. Location of sonar.csv is specified in a SONAR_CSV_LOCATION constant at the start of the file as well.
 
 After application has started, you can visit the home page via going to http://127.0.0.1:5000/.
 There you can provide sonar data, a comma-separated 60 numbers just like in sonar.csv. Example:
