@@ -1,4 +1,4 @@
-## <a name="gettingstarted1"></a>Getting Started
+## Getting Started
 
 1\. Clone Git repository:
 
@@ -33,10 +33,19 @@ res = classifier.predict([
 print(res)
 ```
 
-Path for saved model is defined in model-code\constants\constants.py
+Path for saved model is defined in model-code\constants\constants.py. The name of the model directory must be "model"
 
 You may need to install dependencies with pip and requirements.txt, if you do not have required dependencies.
 
 ```
 pip install -r requirements.txt
 ```
+
+## Running Flask project.
+
+For running flask project, you have to go to `web-app` directory. From there run:
+
+```
+python -m flask run
+```
+*Note:* Location of a model is specified in a MODEL_LOCATION at the start of the file 

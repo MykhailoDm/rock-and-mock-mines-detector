@@ -2,3 +2,4 @@ pandas
 tensorflow
 sklearn
 scikeras
+flask
